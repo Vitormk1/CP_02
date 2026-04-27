@@ -18,6 +18,8 @@ int main() {
         scanf("%d", &opcao);
 
         switch(opcao) {
+           
+        switch(opcao) {
             case 1:
                 printf("\n--- CALCULO DE MEDIA ---");
                 printf("\nDigite a Nota 1: ");
@@ -35,6 +37,8 @@ int main() {
                 } else {
                     printf("\nSituacao: REPROVADO\n");
                 }
+
+                system("pause");
                 break;
 
             case 2:
