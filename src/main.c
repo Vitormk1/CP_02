@@ -12,7 +12,6 @@ int main() {
     float coef, exp;
 
     do {
-        // --- (2) Interface no CMD ---
         printf("\n=================================");
         printf("\n   SISTEMA ACADEMICO - VERSAO 1.0");
         printf("\n=================================");
@@ -21,3 +20,27 @@ int main() {
         printf("\n0. Sair");
         printf("\n Escolha uma opcao: ");
         scanf("%d", &opcao);
+        switch(opcao) {
+            case 1:
+                printf("\n--- CALCULO DE MEDIA ---");
+                printf("\nDigite a Nota 1: ");
+                scanf("%f", &n1);
+                printf("Digite a Nota 2: ");
+                scanf("%f", &n2);
+                media = (n1 + n2) / 2;
+                printf("\nMedia Final: %.2f", media);
+                if (media >= 7.0) {
+                    printf("\nSituacao: APROVADO\n");
+                } else if (media >= 5.0) {
+                    printf("\nSituacao: RECUPERACAO\n");
+                } else {
+                    printf("\nSituacao: REPROVADO\n");
+                }
+                break;
+
+            case 2:
+                printf("\n--- DERIVADA DE f(x) = ax^n ---");
+                printf("\nDigite o coeficiente (a): ");
+                scanf("%f", &coef);
+                printf("Digite o expoente (n): ");
+                scanf("%f", &exp);
