@@ -11,7 +11,30 @@ int main() {
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
 
-        
+        switch (opcao) {
+
+            case 1:
+                printf("\nDigite a primeira nota: ");
+                scanf("%f", &nota1);
+
+                printf("Digite a segunda nota: ");
+                scanf("%f", &nota2);
+
+                media = (nota1 + nota2) / 2;
+
+                printf("\nMedia: %.2f\n", media);
+
+                if (media >= 6) {
+                    printf("Status: APROVADO\n");
+                } else if (media >= 4) {
+                    printf("Status: RECUPERACAO\n");
+                } else {
+                    printf("Status: REPROVADO\n");
+                }
+
+                break;
+
+            
 
     return 0;
 }
