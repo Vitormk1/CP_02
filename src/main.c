@@ -9,15 +9,25 @@ int main() {
     float coef, exp, x;
     int entradavalida;
 
+    srand(time(NULL));
+
     do {
+        entradavalida = 0; 
+
         printf("\n=================================");
         printf("\n   SISTEMA ACADEMICO - VERSAO 1.0");
         printf("\n=================================");
         printf("\n1. Calcular Media e Classificacao");
         printf("\n2. Calcular Derivada (ax^n)");
+        printf("\n3. Gerar Numero Aleatorio");
         printf("\n0. Sair");
         printf("\n Escolha uma opcao: ");
-        scanf("%d", &opcao);
+
+    
+        if (scanf("%d", &opcao) != 1) {
+            printf("\n[ERRO]: Digite apenas NUMEROS!\n");
+
+    }
 
         switch(opcao) {
             case 1:
