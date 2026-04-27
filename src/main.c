@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <time.h>
 
 int main() {
     int opcao;
@@ -62,15 +63,24 @@ int main() {
 
                 system("pause");
                 break;
-            case 0:
-                printf("\nSaindo do sistema...\n");
+               case 3:
+                printf("\n--- NUMERO ALEATORIO ---");
+
+                int numero = rand() % 100 + 1;
+                printf("Numero gerado: %d\n", numero);
+
+                system("pause");
                 break;
 
+            case 0:
+                printf("\nSaindo do sistema...\n");
+                exit(0);
+
             default:
-                printf("\nOpcao invalida! Tente novamente.\n"); 
+                printf("\nOpcao invalida!\n");
+                system("pause");
         }
 
     } while(opcao != 0);
 
     return 0;
-}
