@@ -7,7 +7,7 @@ int main() {
     int opcao;
     float n1, n2, media;
     float coef, exp, x;
-    int entradaValida;
+    int entradavalida;
 
     do {
         printf("\n=================================");
