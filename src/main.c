@@ -3,87 +3,89 @@
 #include <math.h>
 #include <time.h>
 
+void limparBuffer() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+}
+
 int main() {
     int opcao;
     float n1, n2, media;
     float coef, exp, x;
-    int entradavalida;
-
-    srand(time(NULL));
+    srand((unsigned int)time(NULL));
 
     do {
-        entradavalida = 0;
-
         printf("\n=================================");
-        printf("\n   SISTEMA ACADEMICO - VERSAO 1.0");
+        printf("\n   SISTEMA ACADEMICO - V1.1");
         printf("\n=================================");
         printf("\n1. Calcular Media e Classificacao");
         printf("\n2. Calcular Derivada (ax^n)");
-        printf("\n3. Gerar Numero Aleatorio");
+        printf("\n3. Gerar Numero Aleatorio (1-100)");
         printf("\n0. Sair");
-        printf("\n Escolha uma opcao: ");
+        printf("\n=================================");
+        printf("\nEscolha uma opcao: ");
 
         if (scanf("%d", &opcao) != 1) {
-            printf("\n[ERRO]: Digite apenas NUMEROS!\n");
-            while (getchar() != '\n'); 
-            system("pause");
+            printf("\n[ERRO]: Entrada invalida! Digite um numero.\n");
+            limparBuffer();
             continue;
         }
 
         switch(opcao) {
             case 1:
                 printf("\n--- CALCULO DE MEDIA ---");
-                printf("\nDigite a Nota 1: ");
-                if (scanf("%f", &n1) != 1) { printf("Entrada invalida!"); while(getchar() != '\n'); break; }
+                printf("\nNota 1: ");
+                if (scanf("%f", &n1) != 1) { printf("Erro na nota!\n"); limparBuffer(); break; }
                 
-                printf("Digite a Nota 2: ");
-                if (scanf("%f", &n2) != 1) { printf("Entrada invalida!"); while(getchar() != '\n'); break; }
+                printf("Nota 2: ");
+                if (scanf("%f", &n2) != 1) { printf("Erro na nota!\n"); limparBuffer(); break; }
 
-                media = (n1 + n2) / 2;
+                media = (n1 + n2) / 2.0f;
                 printf("\nMedia Final: %.2f", media);
 
-                if (media >= 7.0) printf("\nSituacao: APROVADO\n");
-                else if (media >= 5.0) printf("\nSituacao: RECUPERACAO\n");
-                else printf("\nSituacao: REPROVADO\n");
-
-                system("pause");
+                if (media >= 7.0f)      printf("\nSituacao: APROVADO\n");
+                else if (media >= 5.0f) printf("\nSituacao: RECUPERACAO\n");
+                else                   printf("\nSituacao: REPROVADO\n");
                 break;
 
             case 2:
                 printf("\n--- DERIVADA DE f(x) = ax^n ---");
-                printf("\nDigite o coeficiente (a): ");
+                printf("\nCoeficiente (a): ");
                 scanf("%f", &coef);
-                printf("Digite o expoente (n): ");
+                printf("Expoente (n): ");
                 scanf("%f", &exp);
 
                 float novoCoef = coef * exp;
-                float novoExp = exp - 1;
+                float novoExp = exp - 1.0f;
 
-                printf("\nA derivada e: f'(x) = %.2fx^%.2f\n", novoCoef, novoExp);
+                if (exp == 0) printf("\nA derivada e: f'(x) = 0\n");
+                else printf("\nA derivada e: f'(x) = %.2fx^%.2f\n", novoCoef, novoExp);
 
-                printf("\nDigite um valor de x: ");
+                printf("\nCalcular para x = ");
                 scanf("%f", &x);
 
-                float resultado = novoCoef * pow(x, novoExp);
-                printf("Resultado = %.2f\n", resultado);
-
-                system("pause");
+                float resultado = novoCoef * powf(x, novoExp);
+                printf("Resultado f'(%.2f) = %.2f\n", x, resultado);
                 break;
+
 
             case 3:
                 printf("\n--- NUMERO ALEATORIO ---");
-                int numAleatorio = rand() % 100 + 1;
-                printf("Numero gerado: %d\n", numAleatorio);
-                system("pause");
+                printf("\nNumero gerado: %d\n", (rand() % 100) + 1);
                 break;
 
             case 0:
-                printf("\nSaindo do sistema...\n");
+                printf("\nEncerrando o programa...\n");
                 break;
 
             default:
-                printf("\nOpcao invalida!\n");
-                system("pause");
+                printf("\n[AVISO]: Opcao %d invalida!\n", opcao);
+        }
+
+        if (opcao != 0) {
+            printf("\nPressione ENTER para continuar...");
+            limparBuffer(); 
+            getchar();      
         }
 
     } while(opcao != 0);
