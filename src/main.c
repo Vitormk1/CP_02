@@ -6,7 +6,8 @@
 int main() {
     int opcao;
     float n1, n2, media;
-    float coef, exp;
+    float coef, exp, x;
+    int entradaValida;
 
     do {
         printf("\n=================================");
@@ -18,8 +19,6 @@ int main() {
         printf("\n Escolha uma opcao: ");
         scanf("%d", &opcao);
 
-        switch(opcao) {
-           
         switch(opcao) {
             case 1:
                 printf("\n--- CALCULO DE MEDIA ---");
@@ -42,7 +41,6 @@ int main() {
                 system("pause");
                 break;
 
-          
             case 2:
                 printf("\n--- DERIVADA DE f(x) = ax^n ---");
                 printf("\nDigite o coeficiente (a): ");
@@ -63,7 +61,8 @@ int main() {
 
                 system("pause");
                 break;
-               case 3:
+
+            case 3:
                 printf("\n--- NUMERO ALEATORIO ---");
 
                 int numero = rand() % 100 + 1;
@@ -84,3 +83,4 @@ int main() {
     } while(opcao != 0);
 
     return 0;
+}
