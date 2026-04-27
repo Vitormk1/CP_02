@@ -41,6 +41,7 @@ int main() {
                 system("pause");
                 break;
 
+          
             case 2:
                 printf("\n--- DERIVADA DE f(x) = ax^n ---");
                 printf("\nDigite o coeficiente (a): ");
@@ -52,14 +53,21 @@ int main() {
                 float novoExp = exp - 1;
 
                 printf("\nA derivada e: f'(x) = %.2fx^%.2f\n", novoCoef, novoExp);
-                break;
 
+                printf("\nDigite um valor de x: ");
+                scanf("%f", &x);
+
+                float resultado = novoCoef * pow(x, novoExp);
+                printf("Resultado = %.2f\n", resultado);
+
+                system("pause");
+                break;
             case 0:
                 printf("\nSaindo do sistema...\n");
                 break;
 
             default:
-                printf("\nOpcao invalida! Tente novamente.\n");
+                printf("\nOpcao invalida! Tente novamente.\n"); 
         }
 
     } while(opcao != 0);
