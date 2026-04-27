@@ -34,7 +34,14 @@ int main() {
 
                 break;
 
-            
+            case 2:
+                printf("Saindo do sistema...\n");
+                return 0;
+
+            default:
+                printf("Opcao invalida! Tente novamente.\n");
+        }
+    }
 
     return 0;
 }
