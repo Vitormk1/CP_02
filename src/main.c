@@ -1,7 +1,3 @@
-#include<stdio.h>
-
-int main() {
-    
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -20,6 +16,7 @@ int main() {
         printf("\n0. Sair");
         printf("\n Escolha uma opcao: ");
         scanf("%d", &opcao);
+
         switch(opcao) {
             case 1:
                 printf("\n--- CALCULO DE MEDIA ---");
@@ -27,8 +24,10 @@ int main() {
                 scanf("%f", &n1);
                 printf("Digite a Nota 2: ");
                 scanf("%f", &n2);
+
                 media = (n1 + n2) / 2;
                 printf("\nMedia Final: %.2f", media);
+
                 if (media >= 7.0) {
                     printf("\nSituacao: APROVADO\n");
                 } else if (media >= 5.0) {
@@ -44,3 +43,22 @@ int main() {
                 scanf("%f", &coef);
                 printf("Digite o expoente (n): ");
                 scanf("%f", &exp);
+
+                float novoCoef = coef * exp;
+                float novoExp = exp - 1;
+
+                printf("\nA derivada e: f'(x) = %.2fx^%.2f\n", novoCoef, novoExp);
+                break;
+
+            case 0:
+                printf("\nSaindo do sistema...\n");
+                break;
+
+            default:
+                printf("\nOpcao invalida! Tente novamente.\n");
+        }
+
+    } while(opcao != 0);
+
+    return 0;
+}
