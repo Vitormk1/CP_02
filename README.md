@@ -2,6 +2,12 @@
 
 ## Modalidade
 Grupo de 5 integrantes
+Vitor: RM571873
+Lucas: RM573197
+Pierre: RM569718
+Ferrari: RM573037
+Lucca: RM570175
+Nickolas: RM569655
 
 ## Regras
 - Trabalhar no mesmo repositório
